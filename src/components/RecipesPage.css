@@ -221,6 +221,36 @@ footer {
   font-weight: bold;
 }
 
+.search-container {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#search-input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex: 1;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #b45309; /* Màu chính của bạn */
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a24e08; /* Màu khi hover */
+}
+
+
 .recipe ul {
   list-style-type: disc;
   margin: 10px 0;
