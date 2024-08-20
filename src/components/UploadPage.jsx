@@ -18,7 +18,6 @@ function UploadPage() {
             const response = await fetch('https://appapi.fuzzypn.com/upload_image', {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors'
             });
 
             if (response.ok) {
