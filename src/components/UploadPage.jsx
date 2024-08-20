@@ -15,7 +15,7 @@ function UploadPage() {
         formData.append('image', selectedFile); // Đổi 'file' thành 'image' để phù hợp với backend
 
         try {
-            const response = await fetch('http://nnquanghomeserver.ddnsking.com:5000/upload_image', {
+            const response = await fetch('https://appapi.fuzzypn.com/upload_image', {
                 method: 'POST',
                 body: formData,
                 mode: 'no-cors'
@@ -23,7 +23,7 @@ function UploadPage() {
 
             if (response.ok) {
                 const data = await response.json();
-                setResult(data);  // Cập nhật kết quả nhận được từ API
+                setResult(data);  
             } else {
                 console.error('Upload failed');
             }
@@ -34,6 +34,7 @@ function UploadPage() {
 
     return (
         <div>
+            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
             <h2>Upload Image</h2>
             <input type="file" onChange={handleFileChange} />
             <button onClick={handleUpload}>Upload</button>
