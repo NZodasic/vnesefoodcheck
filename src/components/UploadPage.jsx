@@ -15,7 +15,7 @@ function UploadPage() {
         formData.append('image', selectedFile); // Đổi 'file' thành 'image' để phù hợp với backend
 
         try {
-            const response = await fetch('https://nnquanghomeserver.ddnsking.com:5000/upload_image', {
+            const response = await fetch('http://nnquanghomeserver.ddnsking.com:5000/upload_image', {
                 method: 'POST',
                 body: formData,
                 mode: 'no-cors'
