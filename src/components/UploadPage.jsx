@@ -18,8 +18,13 @@ function UploadPage() {
             const response = await fetch('https://appapi.fuzzypn.com/upload_image', {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    'Origin': 'https://appapi.fuzzypn.com/',
+                    'Referer': 'https://foodrecognltion.vercel.app/',
+                    // Add any other headers you need here
+                }
             });
-
+    
             if (response.ok) {
                 const data = await response.json();
                 setResult(data);  
