@@ -55,7 +55,7 @@ const Header = () => {
     <header className="fixed z-50 w-screen h-20 p-3 px-4 md:p-5 md:px-16 bg-zinc-950">
       {/* desktop & tablet */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
-        <Link to={"/"} className="flex items-center gap-2">
+        <Link to={"/home"} className="flex items-center gap-2">
           <img src={Logo} className="w-16 object-cover" alt="logo" />
           <p className="text-white text-xl font-bold">Lashma</p>
         </Link>
@@ -68,7 +68,7 @@ const Header = () => {
             className="flex items-center gap-24"
           >
             <li 
-              onClick={() => navigate("/")} 
+              onClick={() => navigate("/home")} 
               className="text-lg font-bold text-amber-300 hover:text-orange-900 duration-100 transition-all ease-in-out cursor-pointer">
               Home
             </li>
@@ -119,7 +119,7 @@ const Header = () => {
           )}
         </div>
 
-        <Link to={"/"} className="flex items-center gap-2">
+        <Link to={"/home"} className="flex items-center gap-2">
           <img src={Logo} className="w-8 object-cover" alt="logo" />
           <p className="text-headingColor text-xl font-bold">City</p>
         </Link>
