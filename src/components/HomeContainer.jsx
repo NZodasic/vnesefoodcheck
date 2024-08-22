@@ -30,8 +30,9 @@ const HomeContainer = () => {
           </span>
         </p>
 
-        <p className="text-base text-black font-bold text-center md:text-left md:w-[80%]">
-Discover the power of AI in recognizing various food items.Our cutting-edge technology allows you to simply upload a photo of your meal, and within seconds, you'll get detailed information about the food items present, Whether you're curious about the nutritional content, or you want to impress your friends with your food knowledge, our application provides fast and accurate results. Ready to start your food journey? Upload an image now and let us do the rest
+        <p className="text-base text-gray-300 font-bold text-center md:text-left md:w-[80%]">
+Discover the power of AI in recognizing Vietnamese Food. 
+Our technology allows you to simply upload a photo of your meal, and within seconds, you'll get detailed information about the food items present, Whether you're curious about the nutritional content, or you want to impress your friends with your food knowledge, our application provides fast and accurate results. Ready to start your food journey? Upload an image now and let us do the rest
         </p>
 
         <button
