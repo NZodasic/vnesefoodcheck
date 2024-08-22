@@ -33,7 +33,7 @@ const Header = () => {
     });
     // Optional: Call your backend to invalidate JWT
     try {
-      await fetch("http://127.0.0.1:5000/logout", {
+      await fetch("http://nnquanghomeserver.ddnsking.com:5000/logout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -69,24 +69,24 @@ const Header = () => {
           >
             <li 
               onClick={() => navigate("/")} 
-              className="text-lg font-bold text-orange-600 hover:text-orange-900 duration-100 transition-all ease-in-out cursor-pointer">
+              className="text-lg font-bold text-amber-300 hover:text-orange-900 duration-100 transition-all ease-in-out cursor-pointer">
               Home
             </li>
             <li 
               onClick={() => navigate("/upload")} 
-              className="text-lg font-bold text-orange-600 hover:text-orange-900 duration-100 transition-all ease-in-out cursor-pointer"
+              className="text-lg font-bold text-amber-300 hover:text--900 duration-100 transition-all ease-in-out cursor-pointer"
             >
               Scanning food
             </li>
             <li 
               onClick={() => window.location.href= "https://foodrecognition.vercel.app/calories"} 
-              className="text-lg font-bold text-orange-600 hover:text-orange-900 duration-100 transition-all ease-in-out cursor-pointer"
+              className="text-lg font-bold text-amber-300 hover:text-orange-900 duration-100 transition-all ease-in-out cursor-pointer"
             >
               Calories
             </li>
             <li
                onClick={() => navigate("/recipes")}
-              className="text-lg font-bold text-orange-600 hover:text-orange-900 duration-100 transition-all ease-in-out cursor-pointer">
+              className="text-lg font-bold text-amber-300 hover:text-orange-900 duration-100 transition-all ease-in-out cursor-pointer">
               Recipes
             </li>
           </motion.ul>
@@ -94,10 +94,10 @@ const Header = () => {
           <div className="relative">
             <motion.img
               whileTap={{ scale: 0.6 }}
-              src={user ? user.photoURL : Avatar}
+              src={Avatar}
               className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
               alt="userprofile"
-              onClick={() => setShowAuthForm(true)}
+              onClick={() => navigate("/register")}
             />
           </div>
         </div>
@@ -111,7 +111,7 @@ const Header = () => {
         >
           <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
           {cartItems && cartItems.length > 0 && (
-            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+            <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-black flex items-center justify-center">
               <p className="text-xs text-white font-semibold">
                 {cartItems.length}
               </p>

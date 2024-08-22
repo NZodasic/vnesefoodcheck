@@ -410,7 +410,7 @@ function UploadPage() {
         setError(""); // Reset error message before upload
 
         try {
-            const response = await fetch('http://localhost:5000/upload_image', {
+            const response = await fetch('http://nnquanghomeserver.ddnsking.com:5000/upload_image', {
                 method: 'POST',
                 body: formData,
             });

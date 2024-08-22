@@ -7,6 +7,7 @@ import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
 import RecipesPage from "./components/RecipesPage";
+import AuthPage from "./components/AuthPage";
 
 const App = () => {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -26,7 +27,7 @@ const App = () => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <div className="w-screen h-auto flex flex-col bg-amber-700">
+      <div className="w-screen h-auto flex flex-col bg-emerald-400">
         <Header />
 
         <main className="mt-14 md:mt-20 px-4 md:px-16 py-4 w-full">
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/createItem" element={<CreateContainer />} />
             <Route path="/upload" element={<UploadPage />} /> {/* Thêm route cho UploadPage */}
             <Route path="/recipes" element={<RecipesPage />} />
+            <Route path="/register" element={<AuthPage/>} />
           </Routes>
         </main>
       </div>

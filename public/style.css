@@ -10,21 +10,11 @@ body {
     font-family: 'Arial', sans-serif;
     font-style: bold;
     color: #fff;
-    background-color: #b45309; /* Màu nền chính */
+    background-color: #0f766e; /* Màu nền chính */
 }
 
 /* Header */
-header {
-    background: #000000;
-    color: #ea580c   ; /* Màu chữ chính */
-    padding: 15px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 50;
-    border-bottom: 2px solid #ff1500; /* Đường viền dưới header */
-}
+
 
 .header-container {
     display: flex;
@@ -72,7 +62,7 @@ header {
 
 .recipe h4 {
     font-size: 1.2em;
-    color: #b45309; /* Màu chủ đạo */
+    color: #000000; /* Màu chủ đạo */
 }
 
 /* Thêm CSS cho ô tìm kiếm */
@@ -190,7 +180,7 @@ h2 {
 /* Footer */
 footer {
     background: #fff;
-    color: #ea580c ; /* Màu chữ chính cho footer */
+    color: #0f766e ; /* Màu chữ chính cho footer */
     text-align: center;
     padding: 10px;
     position: fixed;

@@ -12,7 +12,7 @@ body {
   font-family: 'Arial', sans-serif;
   font-style: bold;
   color: #fff;
-  background-color: #b45309; /* Màu nền chính */
+  background-color: #34d399 ; /* Màu nền chính */
 }
 
 /* Header */
@@ -25,7 +25,7 @@ header {
   top: 0;
   left: 0;
   z-index: 50;
-  border-bottom: 2px solid #ff1500; /* Đường viền dưới header */
+  border-bottom: 2px solid #34d399 ; /* Đường viền dưới header */
 }
 
 .header-container {
@@ -146,7 +146,7 @@ header {
 }
 
 .menu-icon svg {
-  color: #b45309; /* Màu icon menu chính */
+  color: #black; /* Màu icon menu chính */
   font-size: 1.5rem;
 }
 
@@ -192,7 +192,7 @@ h2 {
 /* Footer */
 footer {
   background: #fff;
-  color: #ea580c; /* Màu chữ chính cho footer */
+  color: black; /* Màu chữ chính cho footer */
   text-align: center;
   padding: 10px;
   position: fixed;
