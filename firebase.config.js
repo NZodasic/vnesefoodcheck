@@ -1,20 +1,20 @@
-import {getApp, getApps, initializeApp} from 'firebase/app';
-import {getFirestore} from 'firebase/firestore';
-import {getStorage} from 'firebase/storage';
+import { getApp, getApps, initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDaN9hcpB5U-TMoNvQczua_5M2mvXgu0Hg",
-    authDomain: "vnesefooddetection.firebaseapp.com",
-    databaseURL: "https://vnesefooddetection-default-rtdb.firebaseio.com",
-    projectId: "vnesefooddetection",
-    storageBucket: "vnesefooddetection.appspot.com",
-    messagingSenderId: "683300645962",
-    appId: "1:683300645962:web:9ad120ad6fdc1748770ab3",
-  };
+  apiKey: "AIzaSyD_bxGG0WgOKDejZvER2fTq2xZZjfUs8zs",
+  authDomain: "restaurantapp-c2ed6.firebaseapp.com",
+  databaseURL: "https://restaurantapp-c2ed6-default-rtdb.firebaseio.com",
+  projectId: "restaurantapp-c2ed6",
+  storageBucket: "restaurantapp-c2ed6.appspot.com",
+  messagingSenderId: "174416156605",
+  appId: "1:174416156605:web:2ec169ea4ef3e7bb25e4d4",
+};
 
-const app = getApps.length > 0? getApp() : initializeApp(firebaseConfig);
+const app = getApps.length > 0 ? getApp() : initializeApp(firebaseConfig);
 
-const firestore = getFirestore(app)
-const storage = getStorage(app)
+const firestore = getFirestore(app);
+const storage = getStorage(app);
 
-export {app, firestore, storage};
+export { app, firestore, storage };

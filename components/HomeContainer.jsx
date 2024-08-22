@@ -1,5 +1,4 @@
 import React from "react";
-import Delivery from "../img/delivery.png";
 import HeroBg from "../img/b9.png";
 import { heroData } from "../utils/data";
 
@@ -14,13 +13,6 @@ const HomeContainer = () => {
           <p className="text-base text-orange-500 font-semibold">
             Food Detection
           </p>
-          {/* <div className="w-8 h-8 bg-white rounded-full overflow-hidden drop-shadow-xl">
-            <img
-              src={Delivery}
-              className="w-full h-full object-contain"
-              alt="delivery"
-            />
-          </div> */}
         </div>
 
         <p className="text-[2.5rem] lg:text-[4.5rem] font-bold tracking-wide text-black">
@@ -31,13 +23,14 @@ const HomeContainer = () => {
         </p>
 
         <p className="text-base text-black font-bold text-center md:text-left md:w-[80%]">
-Discover the power of AI in recognizing various food items.Our cutting-edge technology allows you to simply upload a photo of your meal, and within seconds, you'll get detailed information about the food items present, Whether you're curious about the nutritional content, or you want to impress your friends with your food knowledge, our application provides fast and accurate results. Ready to start your food journey? Upload an image now and let us do the rest
+Discover the power of AI in recognizing Vietnamese Food. 
+Our technology allows you to simply upload a photo of your meal, and within seconds, you'll get detailed information about the food items present, Whether you're curious about the nutritional content, or you want to impress your friends with your food knowledge, our application provides fast and accurate results. Ready to start your food journey? Upload an image now and let us do the rest
         </p>
 
         <button
         onClick={() =>window.location.href = "http://localhost:3000/products"}
         type="button"
-        className="bg-gradient-to-br text-white font-bold from-orange-900 to-black w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100">
+        className="bg-gradient-to-br text-white font-bold from-blue-700 to-blue-800 w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100">
           Scan now
         </button>
       </div>
