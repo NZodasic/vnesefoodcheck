@@ -167,7 +167,7 @@ const AuthForm = ({ onClose, onAuth }) => {
               >
                 Sign in
               </button>
-              <Link to="/" className="text-center text-gray-600 mt-2">
+              <Link to="/home" className="text-center text-gray-600 mt-2">
                 <p>
                   Already have an account? <span className="text-purple-600 hover:underline cursor-pointer">login here</span>.
                 </p>
