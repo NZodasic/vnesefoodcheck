@@ -161,7 +161,7 @@ const AuthForm = ({ onClose, onAuth }) => {
                 {isSignup ? "Sign in" : "Sign up"}
               </button>
               <button 
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/home")}
                 type="submit"
                 className="bg-purple-600 text-white font-bold py-2 rounded-md hover:bg-purple-700 transition duration-200"
               >
