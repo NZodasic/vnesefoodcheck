@@ -404,7 +404,7 @@ function UploadPage() {
         }
 
         const formData = new FormData();
-        formData.append('image', selectedFile);
+        formData.append('file', selectedFile);
 
         setLoading(true);
         setError(""); // Reset error message before upload
