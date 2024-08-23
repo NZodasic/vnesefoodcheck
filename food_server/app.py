@@ -1,4 +1,3 @@
-import os
 from flask import Flask, request, jsonify
 from flask_jwt_extended import create_access_token, get_jwt, get_jwt_identity, unset_jwt_cookies, jwt_required, JWTManager
 from flask_bcrypt import Bcrypt
@@ -16,11 +15,11 @@ import cv2
 import requests
 import numpy as np
 
+# Initialize Flask app
 api = Flask(__name__)
 
-CORS(api, origins=["http://localhost:3000"], supports_credentials=True)
-CORS(api , resources={r"/*": {"origins": "http://localhost:3000"}})
-
+# Configure CORS
+CORS(api, resources={r"/*": {"origins": "http://localhost:3000"}}, supports_credentials=True)
 
 # Swagger UI configuration
 SWAGGER_URL = '/api/docs'
@@ -76,30 +75,84 @@ def download_image_from_url(url):
     image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
     return image
 
-@api.route('/user/upload_folder', methods=['POST'])
-@jwt_required()
+# Routes
+@api.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+@api.route('/logintoken', methods=["POST"])
 @cross_origin(origins='http://localhost:3000', supports_credentials=True)
-def user_upload_folder():
-    if 'folder' not in request.files:
-        return jsonify({"error": "No folder part"}), 400
+def create_token():
+    email = request.json.get("email")
+    password = request.json.get("password")
+  
+    user = User.query.filter_by(email=email).first()
+    if user is None or not bcrypt.check_password_hash(user.password, password):
+        return jsonify({"error": "Wrong email or password"}), 401
+  
+    access_token = create_access_token(identity=email)
+    return jsonify({"email": email, "access_token": access_token})
 
-    folder = request.files['folder']
-    if folder.filename == '':
-        return jsonify({"error": "No selected folder"}), 400
-
-    folder_path = 'user_uploads/'
-    file_urls = []
-
-    for file in folder:
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            storage_path = os.path.join(folder_path, filename)
-            image_url = upload_image_to_firebase(file, storage_path)
-            file_urls.append(image_url)
-
+@api.route("/signup", methods=["POST"])
+@cross_origin(origins='http://localhost:3000', supports_credentials=True)
+def signup():
+    name = request.json.get("name")
+    email = request.json.get("email")
+    password = request.json.get("password")
+    about = request.json.get("about")
+   
+    if User.query.filter_by(email=email).first():
+        return jsonify({"error": "Email already exists"}), 409
+       
+    hashed_password = bcrypt.generate_password_hash(password)
+    new_user = User(name=name, email=email, password=hashed_password, about=about)
+    db.session.add(new_user)
+    db.session.commit()
+   
     return jsonify({
-        "file_urls": file_urls
-    }), 200
+        "name": new_user.name,
+        "id": new_user.id,
+        "email": new_user.email,
+        "about": new_user.about
+    })
+
+@api.after_request
+def refresh_expiring_jwts(response):
+    try:
+        exp_timestamp = get_jwt()["exp"]
+        now = datetime.now(timezone.utc)
+        target_timestamp = datetime.timestamp(now + timedelta(minutes=30))
+        if target_timestamp > exp_timestamp:
+            access_token = create_access_token(identity=get_jwt_identity())
+            data = response.get_json()
+            if isinstance(data, dict):
+                data["access_token"] = access_token
+                response.data = json.dumps(data)
+        return response
+    except (RuntimeError, KeyError):
+        return response
+
+@api.route("/logout", methods=["POST"])
+@cross_origin(origins='http://localhost:3000', supports_credentials=True)
+def logout():
+    response = jsonify({"msg": "logout successful"})
+    unset_jwt_cookies(response)
+    return response
+
+@api.route('/profile/<getemail>')
+@jwt_required() 
+@cross_origin(origins='http://localhost:3000', supports_credentials=True)
+def my_profile(getemail):
+    user = User.query.filter_by(email=getemail).first()
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+  
+    return jsonify({
+        "id": user.id,
+        "name": user.name,
+        "email": user.email,
+        "about": user.about
+    })
 
 @api.route('/upload_image', methods=['POST'])
 @cross_origin(origins='http://localhost:3000', supports_credentials=True)
@@ -133,7 +186,7 @@ def upload_image():
         return jsonify({
             "best_class_name": best_class_name,
             "highest_confidence": highest_confidence,
-            "image_url": image_url
+            "image_url": image_url  # Trả về URL của ảnh
         }), 200
     else:
         return jsonify({"error": "Invalid file type"}), 400
