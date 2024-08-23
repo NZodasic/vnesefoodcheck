@@ -167,11 +167,7 @@ const AuthForm = ({ onClose, onAuth }) => {
               >
                 Sign in
               </button>
-              <Link to="/home" className="text-center text-gray-600 mt-2">
-                <p>
-                  Already have an account? <span className="text-purple-600 hover:underline cursor-pointer">login here</span>.
-                </p>
-              </Link>
+              
               {isSignup && (
                 <div className="flex items-center mt-4">
                   <input 
