@@ -81,7 +81,7 @@ const AuthForm = ({ onClose, onAuth }) => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-emerald-400 to-emerald-400 p-4 overflow-hidden">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+      <div className="w-full max-w-md bg-black rounded-lg shadow-md p-6">
         {isAuthenticated ? (
           <div className="text-center">
             <h2 className="text-2xl mb-4">Welcome, {username || email}</h2>
