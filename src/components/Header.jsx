@@ -73,7 +73,7 @@ const Header = () => {
               Home
             </li>
             <li 
-              onClick={() => navigate("/upload")} 
+              onClick={() => window.location.href = ("http://localhost:3000/upload")} 
               className="text-lg font-bold text-amber-300 hover:text--900 duration-100 transition-all ease-in-out cursor-pointer"
             >
               Scanning food
