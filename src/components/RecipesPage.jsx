@@ -57,32 +57,32 @@ const RecipesPage = () => {
     <div>
       <main>
         <section id="home">
-          <h2>Chào mừng bạn đến với Sách Công Thức Nấu Ăn Việt Nam</h2>
+          <h2>Welcome to Vietnamese food recipes</h2>
         </section>
         <div className="search-container">
           <input
             type="text"
             id="search-input"
-            placeholder="Tìm kiếm công thức theo tên..."
+            placeholder="Search recipes by name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button onClick={handleSearch}>Tìm kiếm</button>
         </div>
         <section id="recipes">
-          <h2>Các Công Thức</h2>
+          <h2>How to make</h2>
           <div id="recipe-list">
             {filteredRecipes.map(recipe => (
               <div className="recipe" key={recipe.title}>
                 <img src={recipe.image} alt={recipe.title} />
                 <h3>{recipe.title}</h3>
-                <h4>Nguyên liệu</h4>
+                <h4>Require...</h4>
                 <ul>
                   {recipe.ingredients.map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
                   ))}
                 </ul>
-                <h4>Hướng dẫn</h4>
+                <h4>Tutorial</h4>
                 <p>{recipe.instructions}</p>
               </div>
             ))}
